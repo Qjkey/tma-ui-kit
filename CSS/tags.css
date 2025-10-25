@@ -9,7 +9,7 @@
   /* border-bottom: 1px solid #ddd; */
 }
 
-::-webkit-scrollbar { display: none; }
+/* ::-webkit-scrollbar { display: none; } */
 
 .tag {
   display: inline-block;
@@ -34,3 +34,4 @@
   transform: scale(0.9);
 
 }
+
