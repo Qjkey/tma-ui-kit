@@ -1,0 +1,86 @@
+@font-face {
+    font-family: "Rb";
+    src: url("Roboto.ttf") format("truetype");
+}
+
+.container-link {
+    text-decoration: none;
+    display: block; /* Make the link a block element to fill the container */
+}
+
+.container {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(to right, #CF983A, #C98A3E, #D99F59, #C47C42);
+    /* (to right, #31965b, #8bad4a, #22b348, #589c40) Зелёный */
+    /* (to right, #CF983A, #C98A3E, #D99F59, #C47C42) Жёлтый */
+    /* (to right, #06a2c9, #4893d4, #019dc4, #4D90CE) Синий */
+    /* (to right, #C7565D, #F98A5E, #A8553F) Красный */
+    /* (to right, #9663CD, #D17DE6, #B259E2) Фиолетовый */
+    /* (to right, #6ACCC3, #349974, #3499BC) Бирюзовый */
+    color: white;
+    margin-bottom: 10px;
+}
+
+.text-content {
+    width: 60%;
+    margin: 15px 0px 15px 20px
+}
+
+.title-ADS {
+    font-size: 17px;
+    font-weight: 450;
+    margin: 0;
+}
+
+.subtitle-ADS {
+    font-size: 14px;
+    display: flex;
+    margin: 5px 0px 0px 0px;
+    opacity: 0.6;
+    font-weight: 350;
+    align-items: center;
+}
+
+.padd {
+    margin-right: 4px;
+}
+
+.subtitle-ADS .svg-str {
+    stroke: white;
+    opacity: 0.8;
+}
+
+.image {
+    height: 70px;
+    margin-right: 44px;
+}
+
+.close-button {
+    position: absolute;
+    margin-bottom: 35px;
+    right: 20px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border: none;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px); /* For Safari */
+}
+
+.close-button:active {
+    transition: 0.03s;
+    transform: scale(0.8);
+}
+
+
+.close-button .close-icon {
+    stroke: white;
+}

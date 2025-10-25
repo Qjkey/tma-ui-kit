@@ -1,0 +1,63 @@
+.radio-container {
+    display: inline-block;
+    position: relative;
+    padding-left: 21px;
+    margin-bottom: 20px;
+    cursor: pointer;
+    font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.radio-container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.radio-checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 17px;
+    width: 17px;
+    background-color: #eeeeee00;
+    border-radius: 50%;
+    border: 2px solid var(--tg-theme-hint-color);
+    transition: border-color 0.3s ease;
+}
+
+/* Когда radio button выбран */
+.radio-container input:checked ~ .radio-checkmark {
+    border-color: var(--tg-theme-button-color); /* Синий цвет */
+}
+
+/* Создаем индикатор выбора (внутренний кружок) */
+.radio-checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+/* Показываем индикатор когда radio button выбран */
+.radio-container input:checked ~ .radio-checkmark:after {
+    display: block;
+}
+
+/* Стиль индикатора выбора (внутренний кружок) */
+.radio-container .radio-checkmark:after {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0); /* Начальный размер 0 */
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--tg-theme-button-color); /* Синий цвет */
+    transition: transform 0.3s ease; /* Анимация увеличения */
+}
+
+.radio-container input:checked ~ .radio-checkmark:after {
+    transform: translate(-50%, -50%) scale(1); /* Конечный размер 1 */
+}

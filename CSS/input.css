@@ -1,0 +1,107 @@
+body {
+    margin: 0;
+    font-family: "Rb";
+}
+
+.input-container {
+    position: relative;
+    width: 100%; /* Adjust as needed */
+    margin-top: 19px;
+}
+
+.input-field {
+    width: 100%;
+    padding: 12px 16px;
+    padding-top: 14px; /* Space for floating label */
+    border: 2px solid var(--tg-theme-hint-color); /* Light grey border */
+    border-radius: 7px; /* Slight rounding */
+    font-size: 18px;
+    outline: none;
+    transition: border-color 0.2s ease; /* Smooth transition for border */
+    box-sizing: border-box;
+}
+.input-field[type="text"] {
+    font-family: "Rb";
+}
+
+.input-field:focus {
+    border-color: #50A8EB; /* Blue border on focus */
+}
+
+.input-field.error {
+    border-color: #f44336; /* Red border on error */
+}
+
+.input-label {
+    position: absolute;
+    top: 18px; /* Adjust based on input height and font size */
+    left: 13px;
+    font-size: 15px;
+    color: #999;
+    pointer-events: none;
+    transition: all 0.2s ease;
+    font-family: "Rb";
+    background-color: #fff; /* Match background color of input */
+    padding: 0 4px;  /* create background behind the label, cropping border */
+}
+
+.input-field:focus + .input-label,
+.input-field:not(:placeholder-shown) + .input-label
+{
+    color: #50A8EB;  
+    top: -6px; /* Move label to top on focus/text */
+    font-size: 13px;
+}
+
+.input-field.has-text + .input-label {
+    color: #999;  
+    top: -6px;
+    font-size: 13px;
+}
+
+.input-field:focus + .input-label {
+    color: #50A8EB;
+}
+
+.input-field:not(:focus) + .input-label {
+    color: #999;
+}
+
+.input-field::placeholder {
+    color: transparent; /* Hide placeholder */
+}
+
+.clear-button {
+    position: absolute;
+    top: 54%;
+    right: 15px; /* Space from right edge */
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #999;
+    display: none; /* Initially hidden */
+}
+.clear-button svg {
+    fill: #999;
+}
+
+.input-field:not(:placeholder-shown) + .input-label + .clear-button,
+.input-field.has-text + .input-label + .clear-button,
+.input-field:focus + .input-label + .clear-button{
+    display: block;
+}
+
+.limit-counter {
+    position: absolute;
+    font-family: "Rb";
+    bottom: 16px;
+    right: 40px;
+    font-size: 15px;
+    color: #999;
+    display: none;
+}
+
+.input-container.limited .limit-counter {
+    display: block;
+}
