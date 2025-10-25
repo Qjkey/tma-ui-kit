@@ -11,6 +11,7 @@ body {
     margin: 0;
     font-family: "Rb";
     background-color: var(--tg-theme-secondary-bg-color);
+    color: var(--tg-theme-text-color);
 }
 a {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
@@ -154,5 +155,6 @@ input:focus {
     font-size: 16px;
     color: var(--tg-theme-hint-color);
 }
+
 
 
