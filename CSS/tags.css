@@ -1,21 +1,3 @@
-:root {
-    --tg-theme-secondary-bg-color: #f0f0f0;
-    --tg-theme-text-color: #222222;
-    --tg-theme-button-color: #50a8eb;
-    --tg-theme-bg-color: #ffffff;
-    --tg-theme-button-text-color: #ffffff;
-    --tg-theme-link-color: #2678b6;
-    --tg-theme-section-header-text-color: #3a95d5;
-    --tg-theme-hint-color: #a8a8a8;
-    --tg-theme-subtitle-text-color: #82868a;
-    --tg-theme-destructive-text-color: #cc2929;
-    --tg-theme-section-separator-color: #d9d9d9;
-    --tg-theme-section-bg-color: #ffffff;
-    --tg-theme-bottom-bar-bg-color: #f0f0f0;
-
-    --padding-left: 20px;
-}
-
 /* Теги */
 .tags-wrapper {
   background: var(--tg-theme-secondary-bg-color);
@@ -50,4 +32,5 @@
 .tag:active {
   transition: 0.03s;
   transform: scale(0.9);
+
 }
