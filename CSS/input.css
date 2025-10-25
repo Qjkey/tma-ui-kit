@@ -25,7 +25,7 @@ body {
 }
 
 .input-field:focus {
-    border-color: #50A8EB; /* Blue border on focus */
+    border-color: var(--tg-theme-button-color); /* Blue border on focus */
 }
 
 .input-field.error {
@@ -37,34 +37,34 @@ body {
     top: 18px; /* Adjust based on input height and font size */
     left: 13px;
     font-size: 15px;
-    color: #999;
+    color: var(--tg-theme-hint-color);
     pointer-events: none;
     transition: all 0.2s ease;
     font-family: "Rb";
-    background-color: #fff; /* Match background color of input */
+    background-color: var(--tg-theme-bg-color); /* Match background color of input */
     padding: 0 4px;  /* create background behind the label, cropping border */
 }
 
 .input-field:focus + .input-label,
 .input-field:not(:placeholder-shown) + .input-label
 {
-    color: #50A8EB;  
+    color: var(--tg-theme-button-color);  
     top: -6px; /* Move label to top on focus/text */
     font-size: 13px;
 }
 
 .input-field.has-text + .input-label {
-    color: #999;  
+    color: var(--tg-theme-hint-color);  
     top: -6px;
     font-size: 13px;
 }
 
 .input-field:focus + .input-label {
-    color: #50A8EB;
+    color: var(--tg-theme-button-color);
 }
 
 .input-field:not(:focus) + .input-label {
-    color: #999;
+    color: var(--tg-theme-hint-color);
 }
 
 .input-field::placeholder {
@@ -79,11 +79,11 @@ body {
     background: none;
     border: none;
     cursor: pointer;
-    color: #999;
+    color: var(--tg-theme-hint-color);
     display: none; /* Initially hidden */
 }
 .clear-button svg {
-    fill: #999;
+    fill: var(--tg-theme-hint-color);
 }
 
 .input-field:not(:placeholder-shown) + .input-label + .clear-button,
@@ -98,7 +98,7 @@ body {
     bottom: 16px;
     right: 40px;
     font-size: 15px;
-    color: #999;
+    color: var(--tg-theme-hint-color);
     display: none;
 }
 
