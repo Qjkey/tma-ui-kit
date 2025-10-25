@@ -1,3 +1,7 @@
+:root {
+    --padding-left: 20px;
+}
+
 @font-face {
     font-family: "Rb";
     src: url("Roboto.ttf") format("truetype");
@@ -150,4 +154,5 @@ input:focus {
     font-size: 16px;
     color: var(--tg-theme-hint-color);
 }
+
 
