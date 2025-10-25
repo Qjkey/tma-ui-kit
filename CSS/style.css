@@ -100,6 +100,9 @@ input:focus {
     display: flex;
     justify-content: flex-end;
 }
+.list .right-icon svg {
+    stroke: var(--tg-theme-hint-color);
+}
 .list .icon-item svg {
     width: 26px;
 }
@@ -158,6 +161,7 @@ input:focus {
     font-size: 16px;
     color: var(--tg-theme-hint-color);
 }
+
 
 
 
