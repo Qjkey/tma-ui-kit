@@ -23,6 +23,7 @@ body {
 }
 .input-field[type="text"] {
     font-family: "Rb";
+    color: var(--tg-theme-text-color);
 }
 
 .input-field:focus {
@@ -106,4 +107,5 @@ body {
 .input-container.limited .limit-counter {
     display: block;
 }
+
 
