@@ -1,12 +1,10 @@
 /* Теги */
 .tags-wrapper {
   background: var(--tg-theme-secondary-bg-color);
-  overflow-x: scroll;
-  overflow-y: hidden;
+  overflow-x: auto;
   white-space: nowrap;
   padding: 8px 16px;
   cursor: default;
-  /* border-bottom: 1px solid #ddd; */
 }
 
 /* ::-webkit-scrollbar { display: none; } */
@@ -34,4 +32,5 @@
   transform: scale(0.9);
 
 }
+
 
