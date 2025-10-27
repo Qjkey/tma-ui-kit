@@ -46,6 +46,7 @@
     <div class="tag">Подвкладка 7</div>
     <div class="tag">Подвкладка 8</div>
     <div class="tag">Подвкладка 9</div>
+    <div class="active-tag-background"></div>  <!-- Капсула фона -->
 </div>
 
 
@@ -70,7 +71,7 @@
         </div> 
 
         <!-- Текст + стрелка -->
-        <div class="list-item defu sepa">
+        <div class="list-item defu sepa clickable-div">
             <div class="left">
                 <div class="title">Заголовок</div>
             </div>
@@ -509,19 +510,36 @@ document.addEventListener('DOMContentLoaded', function() {
 </script>
 <!-- Для вкладок -->
 <script>
-const tabs = document.querySelectorAll('.tab');
-const tagsContainer = document.getElementById('tags-container');
-const emojiList = document.getElementById('emoji-list');
+document.addEventListener('DOMContentLoaded', function() {
+    const tabHeader = document.querySelector('.tab-header');
+    const tabs = tabHeader.querySelectorAll('.tab');
+    const underline = document.createElement('div'); // Создаем элемент подчеркивания
+    underline.classList.add('tab-underline'); // Добавляем класс для стилизации
+    tabHeader.appendChild(underline); // Добавляем подчеркивание в DOM
 
-tabs.forEach(tab => {
-tab.addEventListener('click', () => {
-    if (tab.classList.contains('active')) return;
-    tabs.forEach(t => t.classList.remove('active'));
-    tab.classList.add('active');
-    const tags = tagsContainer.querySelectorAll('.tag');
-    tags.forEach(t => t.classList.remove('active'));
-    if(tags.length) tags[0].classList.add('active');
-});
+    function updateUnderlinePosition() {
+        const activeTab = tabHeader.querySelector('.tab.active');
+
+        if (activeTab) {
+            underline.style.left = activeTab.offsetLeft + 'px';
+            underline.style.width = activeTab.offsetWidth + 'px';
+        }
+    }
+
+    tabs.forEach(tab => {
+        tab.addEventListener('click', function(event) {
+            event.preventDefault();
+
+            tabs.forEach(t => t.classList.remove('active'));
+            this.classList.add('active');
+
+            updateUnderlinePosition();
+        });
+    });
+
+    // Инициализация: устанавливаем начальное положение подчеркивания
+    updateUnderlinePosition();
+    window.addEventListener('resize', updateUnderlinePosition); // Обновляем при изменении размера окна
 });
 </script>
 <!-- Для тегов -->
@@ -533,10 +551,88 @@ tagsContainer.querySelectorAll('.tag').forEach(t => t.classList.remove('active')
 tag.classList.add('active');
 });
 </script>
+<!-- Для тегов -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const tagsContainer = document.getElementById('tags-container');
+  const tags = tagsContainer.querySelectorAll('.tag');
+  const backgroundCapsule = tagsContainer.querySelector('.active-tag-background');
 
+  function updateBackgroundCapsulePosition() {
+    const activeTag = tagsContainer.querySelector('.tag.active');
+    if (activeTag) {
+      backgroundCapsule.style.left = activeTag.offsetLeft + 'px';
+      backgroundCapsule.style.width = activeTag.offsetWidth + 'px';
+    }
+  }
+
+  updateBackgroundCapsulePosition();
+
+  tags.forEach(tag => {
+    tag.addEventListener('click', function(event) {
+      event.preventDefault();
+
+      tags.forEach(t => t.classList.remove('active'));
+      this.classList.add('active');
+
+      updateBackgroundCapsulePosition();
+    });
+  });
+
+  window.addEventListener('resize', updateBackgroundCapsulePosition);
+});
+</script>
+<!-- Для Navigation Bar -->
+<script>
+const navItems = document.querySelectorAll('.nav-item');
+const animationDuration = 60;
+
+navItems[0].classList.add('active');
+animateWidth(navItems[0].querySelector('.icon-wrapper'), 20, true);
+
+navItems.forEach(item => {
+    item.addEventListener('click', function(event) {
+        event.preventDefault();
+
+        navItems.forEach(item => {
+            item.classList.remove('active');
+            animateWidth(item.querySelector('.icon-wrapper'), 5, false);
+        });
+
+        this.classList.add('active');
+        animateWidth(this.querySelector('.icon-wrapper'), 20, true);
+    });
+});
+
+function animateWidth(element, targetPadding, expanding) {
+    const startPadding = parseInt(window.getComputedStyle(element).paddingLeft);
+    const distance = targetPadding - startPadding;
+    let startTime = null;
+
+    function animationStep(timestamp) {
+        if (!startTime) startTime = timestamp;
+        const progress = timestamp - startTime;
+        const percentage = Math.min(progress / animationDuration, 1);
+        const easedPercentage = easeInOutQuad(percentage);
+
+        const newPadding = startPadding + distance * easedPercentage;
+
+        element.style.paddingLeft = newPadding + 'px';
+        element.style.paddingRight = newPadding + 'px';
+
+        if (progress < animationDuration) {
+            requestAnimationFrame(animationStep);
+        } else {
+            element.style.paddingLeft = targetPadding + 'px';
+            element.style.paddingRight = targetPadding + 'px';
+        }
+    }
+
+    requestAnimationFrame(animationStep);
+}
+function easeInOutQuad(t) {
+    return t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
+}
+</script>
 
 </html>
-
-
-
-
