@@ -1,20 +1,23 @@
 .radio-container {
     display: inline-block;
     position: relative;
-    padding-left: 21px;
-    margin-bottom: 20px;
+    margin-top: 5px;
+    /* padding-left: 21px; */
+    /* margin-bottom: 20px; */
     cursor: pointer;
     font-size: 22px;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
+    -webkit-tap-highlight-color: transparent;
 }
 
 .radio-container input {
-    position: absolute;
+    /* position: absolute; */
     opacity: 0;
     cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
 }
 
 .radio-checkmark {
@@ -27,6 +30,7 @@
     border-radius: 50%;
     border: 2px solid var(--tg-theme-hint-color);
     transition: border-color 0.3s ease;
+    -webkit-tap-highlight-color: transparent;
 }
 
 /* Когда radio button выбран */
