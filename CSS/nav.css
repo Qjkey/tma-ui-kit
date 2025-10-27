@@ -46,11 +46,12 @@
 
 .icon-wrapper {
     margin-top: 3px;
-    padding: 4px 21px;
-    border-radius: 9999px; /* капсула */
+    padding: 4px 0px;
+    border-radius: 9999px;
     display: inline-flex;
     justify-content: center;
     align-items: center;
+    transition: padding 0.3s ease;
 }
 
 .nav-item.active .icon-wrapper {
